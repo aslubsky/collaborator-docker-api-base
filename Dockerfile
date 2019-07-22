@@ -15,6 +15,7 @@ RUN apt-get install -y \
     poppler-utils \
     ca-certificates \
     gnupg \
+    libfcgi \
     apt-transport-https
 
 RUN cd /tmp && wget https://github.com/htacg/tidy-html5/releases/download/5.4.0/tidy-5.4.0-64bit.deb && dpkg -i tidy-5.4.0-64bit.deb
