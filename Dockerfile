@@ -30,6 +30,8 @@ RUN apt-get install -y php7.1 php7.1-mysql php7.1-xml php7.1-curl php7.1-gd php7
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin
 RUN /usr/bin/composer.phar self-update
 
+RUN composer.phar global require hirak/prestissimo
+
 RUN wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck
 RUN chmod +x /usr/local/bin/php-fpm-healthcheck
 #
