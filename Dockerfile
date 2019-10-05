@@ -34,7 +34,7 @@ RUN phpize && ./configure --enable-phpiredis
 RUN make && make install
 RUN echo "extension=phpiredis.so" > /etc/php/7.1/mods-available/phpiredis.ini
 RUN ln -s /etc/php/7.1/mods-available/phpiredis.ini /etc/php/7.1/cli/conf.d/phpiredis.ini
-RUN ln -s /etc/php/7.1/mods-available/phpiredis.ini /etc/php/7.1/cli/conf.d/phpiredis.ini
+RUN ln -s /etc/php/7.1/mods-available/phpiredis.ini /etc/php/7.1/fpm/conf.d/phpiredis.ini
 RUN rm -rf /tmp/phpiredis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin
