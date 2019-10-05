@@ -29,8 +29,8 @@ RUN apt-get update
 RUN apt-get install -y php7.1 php7.1-mysql php7.1-xml php7.1-curl php7.1-gd php7.1-mcrypt php7.1-intl php7.1-zip php7.1-mbstring php7.1-fpm php7.1-sqlite php7.1-ldap php7.1-redis php7.1-dev
 
 
-RUN cd /tmp && git clone https://github.com/nrk/phpiredis.git && cd phpiredis
-RUN phpize && ./configure --enable-phpiredis
+RUN cd /tmp && git clone https://github.com/nrk/phpiredis.git
+RUN cd /tmp/phpiredis && phpize && ./configure --enable-phpiredis
 RUN make && make install
 RUN echo "extension=phpiredis.so" > /etc/php/7.1/mods-available/phpiredis.ini
 RUN ln -s /etc/php/7.1/mods-available/phpiredis.ini /etc/php/7.1/cli/conf.d/phpiredis.ini
