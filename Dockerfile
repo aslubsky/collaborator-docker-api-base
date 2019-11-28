@@ -16,6 +16,7 @@ RUN apt-get install -y \
     ca-certificates \
     gnupg \
     libfcgi \
+    mysql-client \
     libhiredis-dev \
     apt-transport-https
 
