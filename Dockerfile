@@ -47,6 +47,7 @@ RUN rm -rf /tmp/phpiredis
 RUN pecl install mcrypt-1.0.2
 RUN echo "extension=mcrypt.so" > /etc/php/7.3/mods-available/mcrypt.ini
 RUN ln -s /etc/php/7.3/mods-available/mcrypt.ini /etc/php/7.3/cli/conf.d/mcrypt.ini
+RUN ln -s /etc/php/7.3/mods-available/mcrypt.ini /etc/php/7.3/fpm/conf.d/mcrypt.ini
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin
 RUN /usr/bin/composer.phar self-update
