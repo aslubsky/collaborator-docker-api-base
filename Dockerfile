@@ -11,6 +11,7 @@ RUN apt-get install --fix-missing -y \
     git \
     supervisor \
     catdoc \
+    xlsx2csv \
     nano \
     poppler-utils \
     ca-certificates \
