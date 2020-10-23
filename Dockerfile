@@ -56,6 +56,9 @@ RUN /usr/bin/composer.phar self-update
 
 RUN composer.phar global require hirak/prestissimo
 
+RUN wget -O /usr/bin/phpunit https://phar.phpunit.de/phpunit-5.phar
+RUN chmod +x /usr/bin/phpunit
+
 RUN wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck
 RUN chmod +x /usr/local/bin/php-fpm-healthcheck
 #
