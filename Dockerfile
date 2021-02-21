@@ -1,4 +1,4 @@
-FROM debian:9.12-slim
+FROM debian:10.6-slim
 
 RUN apt-get update && apt-get -y upgrade
 
@@ -11,12 +11,13 @@ RUN apt-get install --fix-missing -y \
     git \
     supervisor \
     catdoc \
+    xlsx2csv \
     nano \
     poppler-utils \
     ca-certificates \
     gnupg \
     libfcgi \
-    mysql-client \
+    default-mysql-client \
     libhiredis-dev \
     apt-transport-https \
     libmcrypt-dev \
@@ -31,9 +32,10 @@ RUN apt-get update
 RUN wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list
 
-RUN apt-get update
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
-RUN apt-get install -y php7.3 php7.3-mysql php7.3-xml php7.3-curl php7.3-gd php7.3-intl php7.3-zip php7.3-mbstring php7.3-fpm php7.3-sqlite php7.3-ldap php7.3-redis php7.3-dev
+RUN apt-get update
+RUN apt-get install -y php7.3 php7.3-mysql php7.3-xml php7.3-curl php7.3-gd php7.3-intl php7.3-zip php7.3-mbstring php7.3-fpm php7.3-sqlite php7.3-ldap php7.3-redis php7.3-dev nodejs
 
 
 RUN cd /tmp && git clone https://github.com/nrk/phpiredis.git
@@ -53,6 +55,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin
 RUN /usr/bin/composer.phar self-update
 
 RUN composer.phar global require hirak/prestissimo
+
+RUN wget -O /usr/bin/phpunit https://phar.phpunit.de/phpunit-5.phar
+RUN chmod +x /usr/bin/phpunit
 
 RUN wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck
 RUN chmod +x /usr/local/bin/php-fpm-healthcheck
