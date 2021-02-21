@@ -54,7 +54,7 @@ RUN ln -s /etc/php/7.3/mods-available/mcrypt.ini /etc/php/7.3/fpm/conf.d/mcrypt.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin
 RUN /usr/bin/composer.phar self-update
 
-RUN composer.phar global require hirak/prestissimo
+#RUN composer.phar global require hirak/prestissimo
 
 RUN wget -O /usr/bin/phpunit https://phar.phpunit.de/phpunit-5.phar
 RUN chmod +x /usr/bin/phpunit
