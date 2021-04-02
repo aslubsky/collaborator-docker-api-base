@@ -1,4 +1,4 @@
-FROM debian:10.6-slim
+FROM debian:10.9-slim
 
 RUN apt-get update && apt-get -y upgrade
 
