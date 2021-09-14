@@ -1,4 +1,4 @@
-FROM debian:10.9-slim
+FROM debian:10.10-slim
 
 RUN apt-get update && apt-get -y upgrade
 
@@ -32,7 +32,7 @@ RUN apt-get update
 RUN wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 
 RUN apt-get update
 RUN apt-get install -y php7.3 php7.3-mysql php7.3-xml php7.3-curl php7.3-gd php7.3-intl php7.3-zip php7.3-mbstring php7.3-fpm php7.3-sqlite php7.3-ldap php7.3-redis php7.3-dev nodejs
