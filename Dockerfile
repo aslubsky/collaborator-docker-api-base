@@ -1,6 +1,6 @@
-FROM debian:10.10-slim
+FROM debian:11.2-slim
 
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get update && apt-get -y dist-upgrade
 
 RUN apt-get install --fix-missing -y \
     wget \
