@@ -1,4 +1,4 @@
-FROM debian:11.2-slim
+FROM debian:11.3-slim
 
 RUN apt-get update && apt-get -y dist-upgrade
 
